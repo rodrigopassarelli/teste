@@ -43,37 +43,41 @@ class Login extends CI_Controller {
 				$sessao = array('login' => $dado->login,
 							    'senha'	=> $dado->senha);
 
-
 				$this->session->set_userdata('logar', $sessao);
 
 				$sessaoAtiva = $this->session->userdata('logar');
-
 
 				if (count($sessaoAtiva) > 0) {
 				
 					redirect('/index.php/login/ola');
 				}
 
-
 			}
 
 		}
 
 		
-
 	}
 
 
 	public function ola() {
+
+		 if ($this->session->userdata('logar')=="") {
+		
+				redirect('/index.php/login/index');
+ 		    }
+
+
 		$this->load->view('ola');
 	}
+
 
 	public function loginview() {
 		$this->load->view('loginview');
 	}
 
 
-	function logout() {
+	public function logout() {
 
 		$this->session->unset_userdata('logar');
 		$this->session->sess_destroy();
@@ -83,19 +87,6 @@ class Login extends CI_Controller {
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

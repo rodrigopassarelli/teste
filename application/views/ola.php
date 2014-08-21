@@ -5,12 +5,6 @@
 <body>
 	<?php 
 
-
- if($this->session->userdata('logar')=="") {
-		
-		redirect('/index.php/login/index');
- }
-
 	$dados = $this->session->userdata('logar');
 	echo "Ola " . $dados['login'];
 	
