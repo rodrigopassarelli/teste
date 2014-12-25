@@ -7,6 +7,8 @@
 
 	$dados = $this->session->userdata('logar');
 	echo "Ola " . $dados['login'];
+
+	echo "blablabla";
 	
 ?>
 
