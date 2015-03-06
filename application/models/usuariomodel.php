@@ -16,7 +16,12 @@ class UsuarioModel extends CI_Model {
 
 		}
 
-	} 
+	}
+
+	public function buscausuarios() {
+		$retorno = $this->db->get('usuarios')->result_array();
+		return $retorno;
+	}
 
 }
 

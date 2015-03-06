@@ -23,6 +23,13 @@ class Welcome extends CI_Controller {
 		echo "teste";
 	}
 
+	public function mostrausuarios() {
+		$this->load->model('usuariomodel');
+		$data['usuarios'] = $this->usuariomodel->buscausuarios();
+
+		$this->load->view('welcome_message', $data);
+	}
+
 }
 
 /* End of file welcome.php */
